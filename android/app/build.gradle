@@ -81,6 +81,12 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+
+        packagingOptions {
+                // See also https://www.ausweisapp.bund.de/sdk/android.html#app-bundle
+                jniLibs { useLegacyPackaging = true }
+
+        }
     }
     signingConfigs {
         debug {
@@ -107,6 +113,7 @@ android {
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
+    implementation("com.governikus:ausweisapp:2.1.0")
     implementation("com.facebook.react:flipper-integration")
 
     if (hermesEnabled.toBoolean()) {
